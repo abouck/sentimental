@@ -59,15 +59,19 @@ class Sentimental
   # return:float -- sentiment value of the current string
   #####################################################################
   def get_score(string)
-    sentiment_total = 0.0
+    sentiment_hash = {"score" => 0.0, "keywords" => {}}
 
     #tokenize the string, also throw away some punctuation
     tokens = string.to_s.downcase.split(/[\s\!\?\.]+/)
     
     tokens.each do |token|
-      sentiment_total += @@sentihash[token]
+      if @@sentihash.key?(token)
+        score = @@sentihash[token]
+        sentiment_hash["score"] += score
+        sentiment_hash["keywords"][token] = score
+      end
     end
-    sentiment_total
+    sentiment_hash
   end
 
   def get_sentiment(string)
