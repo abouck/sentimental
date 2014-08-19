@@ -753,6 +753,7 @@
 -0.4 disturbing
 -0.4 disturbs
 -0.4 dithering
+0.0 divergent
 -0.2 dizzy
 -0.4 dodging
 -0.4 dodgy
